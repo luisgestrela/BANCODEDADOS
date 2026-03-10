@@ -1,0 +1,40 @@
+create table Students (
+id int auto_increment primary key,
+nome varchar (254),
+numero varchar(14)
+);
+
+select*from Students;
+insert into Students (nome, numero) values("plinio", "7197070-7070");
+
+create table Professors(
+teacher_code int auto_increment primary key,
+nome varchar(254),
+numero varchar(14)
+);
+
+select*from Professors;
+insert into Professors (nome, numero) values ("Plutonio", "7197070-7070");
+
+create table Matricula (
+id_student integer,
+foreign key (id_student) references Students(id),
+id_matricula int auto_increment primary key
+);
+select*from Matricula;
+
+create table Disciplinas (
+nome varchar (254),
+id_professor int,
+foreign key (id_professor) references Professors(teacher_code),
+id_matricula integer,
+foreign key (id_matricula) references Matricula(id_matricula),
+id_materia int auto_increment primary key,
+semester int,
+data_matricula date
+);
+
+select*from Disciplinas;
+insert into Disciplinas (nome, semester, data_matricula) values("Engenharia de plinio", 3, "2026-03-11");
+
+show tables;
