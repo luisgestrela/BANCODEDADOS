@@ -1,0 +1,41 @@
+create table Clientes (
+nome varchar(254),
+id int auto_increment not null,
+cpf varchar(11) primary key,
+email varchar(254),
+telefone varchar(24)
+);
+select*from Clientes;
+insert into Clientes(nome, cpf, email, telefone) values (
+("João Silva", "12345678901", "joao@gmail.com", "71999990001"),
+("Maria Souza", "98765432100", "maria@gmail.com", "7199999000"),
+("Carlos Lima", "45678912300", "Carlos@gmail.com", "1999990003")
+);
+create table Produtos (
+id int auto_increment primary key,
+preco decimal (20,2),
+nome varchar (254),
+estoque varchar (254)
+
+);
+
+select*from Produtos;
+insert into Produtos (nome, preco, estoque) values 
+('Notebook', 3500.00, '10'),
+('Mouse Gamer', 150.00, '50'),
+('Teclado Mecânico', 450.00, '20');
+
+create table Pedidos (
+id_pedido int auto_increment primary key,
+numero int,
+cpf_cliente varchar(11),
+foreign key (cpf_cliente) references Clientes(cpf),
+id_produto int,
+foreign key (id_produto) references Produtos(id)
+);
+
+select*from Pedidos;
+insert into Pedidos (numero) values (
+1,
+2,
+3);
